@@ -1,0 +1,33 @@
+//VARIABLES
+// $button-shadow-ocean: -2px 0px 37px 35px deepskyblue;
+// $button-shadow-light: -2px 0px 37px 35px white;
+$button-shadow-ocean:deepskyblue;
+$button-shadow-light:white;
+//..
+
+//MIXINS
+@mixin bottom-center($marginBtm) {
+    bottom: 0;
+    display: flex;
+    margin-bottom: $marginBtm;//orig 70px (for mic controls)
+    position: absolute;
+    width: 100%;
+}
+
+//soft button background style 
+@mixin btn-shadow-background($color) {
+    // animation-name: shrink-expand;
+    // animation-duration: .2s;
+    background: $color;
+    border: .1px solid $color;
+    border-radius: 50px;
+    box-shadow: -2px 0px 37px 35px $color;
+    height: 0px;
+    opacity: .5 !important;
+    // transition: opacity .2s ease-in-out;
+    width: 0px;
+}
+
+@mixin custom-transition($time){
+    
+}

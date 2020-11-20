@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+  <link rel="stylesheet" href="CSS_SCSS/bootstrap.min.css">
+  <link rel="stylesheet" href="CSS_SCSS/style.css">
+  <title></title>
+</head>
+<body class="d-flex justify-content-center">
+
+    <div class="main-wrap align-self-center bg-additional" style="filter: brightness(1);"> <!-- wrap for pretend tsw are-->
+
+            <main class="bg-main d-flex text-light w100 position-relative">
+
+                <!-- TOP BAR -->
+                <section class="border-danger  bar-height d-flex justify-content-between  position-absolute w-100" id="top-bar"> 
+                    <!-- TOPLEFT CONTROLS -->
+                    <aside class="align-items-center align-self-center border-primary d-flex h-75 justify-content-around justify-self-start ml-2 w-25" id="tl-controls">
+                        <!-- record button-->
+                            <div class="control-icon-wrap tl-ctrl-off record-button" id="record-ctrls-wrap" data-state="standby"> <!-- inner wrap-->
+                                <div class="center record-element-wrap" id="record-button-wrap"> <!-- record icon wrap -->
+                                    <img src="Assets/record-off.png" class="tl-control-icon record-element record-button" alt="record-image" id="record-button"> <!-- record ICON -->
+                                </div>
+                                <div class="d-none record-element record-element-wrap small-icon-wrap" id="play-button-wrap">
+                                    <img src="Assets/play-button.png" class="d-none record-element small-icon" alt="play button" id="play-button"> <!-- play -->
+                                </div>
+                                <div class="d-none record-element record-element-wrap small-icon-wrap" id="pause-button-wrap" style="height: 35px !important; width: 35px !important"> <!-- pause wrap -->
+                                    <img src="Assets/pause.png" class="d-none record-element small-icon" alt="pause button" id="pause-button"> <!-- pause -->
+                                    <div class="position-absolute record-element"></div> <!-- for backshadow when pressed-->
+                                </div>
+                                <div class="d-none small-icon-wrap record-element record-element-wrap" id="stop-button-wrap">
+                                    <div src="Assets/"class="d-none record-element small-icon" id="stop-button"></div> <!-- stop -->
+                                </div>
+                            </div>
+                        <!-- volume control-->
+                        <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center tl-ctrl-off range-element sound-button" id="sound-button-wrap">
+                            <!-- <div class="w-auto h-auto"> -->
+                                <img src="Assets/sound-on_edited.png" class="tl-control-icon sound-button" alt="brightness-image" id="sound-button" data-state="unmuted"> <!-- ICON -->
+                                <!-- <div class="mute-line"></div> -->
+                            <!-- </div> -->
+                            <div class="secondary-range-wrap d-none" id="master-volume-range-wrap">
+                                <input type="range" class="d-none secondary-range master-volume-range"> <!-- range slider -->
+                            </div>
+                        </div>
+                        <!-- brightness control -->
+                        <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center tl-ctrl-off range-element brightness-button" id="brightness-button-wrap">
+                            <img src="Assets/brightness.png" class="tl-control-icon brightness-button" alt="brightness-image" id="brightness-button"> <!-- ICON -->
+                            <div class="d-none secondary-range-wrap" id="brightness-range-wrap">
+                                <input type="range" class="d-none secondary-range screen-brightness-range" value="100" min="30" max="100"> <!-- range slider -->
+                            </div>
+                        </div>
+                        <!-- local exit/return -->
+                        <div class="tl-return d-none" id="tl-return-wrap">
+                            <img src="Assets/back-arrow-white.png" class="float-right d-none position-relative tl-return" id="tl-return" style="">
+                        </div>
+                        <!-- OPTIONAL TIMER -->
+                        <div class="position-absolute d-none" data-displayed="true" id="record-timer-wrap" style="bottom: 0">
+                            <span id="record-timer">00:00:00</span>
+                        </div> 
+                    </aside>
+                    <!-- LOGO -->
+                    <aside class="align-items-center align-self-center">
+                        <img src="Assets/university-logo.png" class="" alt="university-logo" id="university-logo">
+                    </aside>
+                    <!-- TIME -->
+                    <aside class="easyinfo-wrap align-items-center flex-column align-self-center border-primary d-flex justify-content-around justify-self-end w-25">
+                        <span class="h1" id="timeValue"></span>
+                        <span class="display-4 d-none" id="dateValue"></span>
+                        <span class="lead text-center mt-n2" id="roomName">Kingston Bld <strong class="alert-link">-</strong> 34.5.3</span>
+                    </aside>
+                </section>
+
+                <!-- MAIN CONTROLS -->
+                <section class="align-self-center border-success control-section d-flex justify-content-center position-absolute w-75" id="main-controls">
+
+                    <!-- MICROPHONE CONTROLS -->
+                    <aside class="align-items-center d-none justify-content-around w-100" id="mic-control-wrap">
+
+                        <!-- <div> -->
+                            <!-- MIC 1-->
+                            <div class="d-flex flex-row range-wrap">
+                                <form class="">
+                                    <input class="main-range" type="range" value="50" orient="vertical">
+                                </form>
+                                <!-- <label class="text-center mt-5">Lecturn Mic</label> -->
+                            </div>
+
+                            <!-- MIC 2 -->
+                            <div class="d-flex flex-column range-wrap">
+                                <form class="">
+                                    <input class="main-range" type="range" value="50" orient="vertical">
+                                </form>
+                                <!-- <label class="text-center mt-5">Hand Mic 1</label> -->
+                            </div>
+
+                            <!-- MIC 3 -->
+                            <div class="d-flex flex-column range-wrap">
+                                <form class="">
+                                    <input class="main-range" type="range" value="50" orient="vertical">
+                                </form>
+                                <!-- <label class="text-center mt-5">Hand Mic 2</label> -->
+                            </div>
+
+                            <!-- MIC 4 -->
+                            <div class="d-flex flex-column range-wrap">
+                                <form class=""> 
+                                    <input class="main-range" type="range" value="50" orient="vertical">
+                                </form>
+                                <!-- <label class="text-center mt-5">Clip Mic 1</label> -->
+                            </div>
+
+                            <!-- MIC 5 -->
+                            <div class="d-flex flex-column range-wrap">
+                                <form class="">
+                                    <input class="main-range" type="range" value="50" orient="vertical">
+                                </form>
+                                <!-- <label class="text-center mt-5">Clip Mic 2</label> -->
+                            </div>
+
+                            <!-- LABELS -->
+                            <div class="mic-label-wrap justify-content-around">
+                                <label class="position-relative lead" style="right: 10px;" for>Lecturn Mic</label>
+                                <label class="position-relative lead"style="right: 13px" for>Hand Mic 1</label>
+                                <label class="position-relative lead"style="right: 12px" for>Hand Mic 2</label>
+                                <label class="position-relative lead"style="right: 9px" for>Clip Mic 1</label>
+                                <label class="position-relative lead"style="right: -1px" for>Clip Mic 2</label>
+                            </div>
+                        <!-- </div> -->
+                    </aside>
+
+                    <!-- LIGHTING CONTROLS -->
+                    <aside class="align-items-center d-flex justify-content-around w-100" id="lighting-control-wrap">
+                        <!-- FRONT LIGHTS -->
+                        <div class="d-flex flex-row range-wrap">
+                            <form class="">
+                                <input class="main-range" type="range" value="50" orient="vertical">
+                            </form>
+                            <!-- <label class="text-center mt-5">Lecturn Mic</label> -->
+                        </div>
+
+                        <!-- MIDDLE LIGHTS -->
+                        <div class="d-flex flex-column range-wrap">
+                            <form class="">
+                                <input class="main-range" type="range" value="50" orient="vertical">
+                            </form>
+                            <!-- <label class="text-center mt-5">Hand Mic 1</label> -->
+                        </div>
+
+                        <!-- BACK LIGHTS -->
+                        <div class="d-flex flex-column range-wrap">
+                            <form class="">
+                                <input class="main-range" type="range" value="50" orient="vertical">
+                            </form>
+                            <!-- <label class="text-center mt-5">Hand Mic 2</label> -->
+                        </div>
+
+                        <!-- LABELS -->
+                        <div class="lighting-label-wrap justify-content-around">
+                            <label class="position-relative fs-3r" style="right: 1px;" for>Front</label>
+                            <label class="position-relative fs-3r"style="right: 4px" for>Middle</label>
+                            <label class="position-relative fs-3r"style="right: 5px" for>Back</label>
+                        </div>
+                    </aside>
+
+                    <!-- DISPLAY SWITCHING -->
+                    <aside class="align-items-center d-none justify-content-around w-100" id="display-switching-wrap">
+                        <figure class="align-items-center d-flex flex-column justify-content-center m-0" id="computer">
+                            <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center">
+                                <img src="Assets/computer.png" alt="PC picture" class="control-icon z-5">
+                            </div>
+                            <figcaption class="z-5 lead">PC</figcaption>
+                            <div class="on position-absolute"></div><!-- backshadow-->
+                        </figure>
+                        <figure class="align-items-center d-flex flex-column justify-content-center m-0" id="hdmi">
+                            <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center">
+                                <img src="Assets/ethernet.png" alt="HDMI picture" class="control-icon z-5">
+                            </div>
+                            <figcaption class="z-5 lead">HDMI</figcaption>
+                            <div class="position-absolute"></div><!-- backshadow-->
+                        </figure>
+                        <figure class="align-items-center d-flex flex-column justify-content-center m-0" id="wireless">
+                            <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center">
+                                <img src="Assets/wifi.png" alt="WIRELSS picture" class="control-icon z-5">
+                            </div>
+                            <figcaption class="z-5 lead">WIRELESS</figcaption>
+                            <div class="position-absolute"></div><!-- backshadow-->
+                        </figure>
+                    </aside>
+
+                </section>
+
+                <!-- BOTTOM BAR -->
+                <section class="align-self-end bar-height border-danger d-flex justify-content-between position-absolute w-100" id="bottom-bar"> 
+
+                    <!-- POWER BUTTON-->
+                    <aside class="tab-wrap align-self-center" id="powerButton">
+                        <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center">
+                            <a class="control-icon-wrap center"><img alt="power-button" class="control-icon" src="Assets/power-button.png"></a>
+                        </div>
+                        <span class="text-center d-none" >Power</span>
+                        <div class="centered off-confirm-box flex-column justify-content-around align-items-center alert-top"> <!-- alert box-->
+                            <div class="center" style="width: 50px; height: 50px;"><span id="countdown" class="h3 m-0">30</span></div><!-- countdown node-->
+                            <span class="h1 position-relative m-0 text-center" style id="alert-text">Are you sure?</span>
+                            <div class="d-flex flex-row justify-content-around w-100"> <!-- button wrap href="javascript:standbyTimer('standby.html')">-->
+                                <button style="width: 100px; height: 50px;" class="btn btn-light text-decoration-none" id="yesBtn" onclick="powerOff();"><a class="h3 text-dark text-decoration-none" href="javascript:powerOff()">Yes</a></button>
+                                <button style="width: 100px; height: 50px;" class="btn btn-light text-decoration-none no-btn-element" id="noBtn"><span class="h3 no-btn-element">No</span></button>
+                            </div>
+                        </div><!-- shutdown confirmation-->
+                        <!-- <div class="position-absolute" style="opacity:0; transition: all .15s ease-in-out;"></div>backshadow -->
+                    </aside>
+
+                    <!-- BOTTOM/MAIN CONTROLS -->
+                    <aside class="align-items-center d-flex justify-content-around tab-parent">
+                        <!-- MIC CONTROLS -->
+                        <div class="tab-wrap z-10" id="mic-control">
+                            <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center">
+                                <img src="Assets/microphone.png" class="control-icon z-5" alt="control-icon">
+                            </div>
+                            <span class="text-center z-5">Mic Levels</span>
+                            <div class="d-none position-absolute"></div><!-- backshadow-->
+                        </div>
+                        <!-- LIGHTING CONTROLS -->
+                        <div class="tab-wrap off z-10" id="lighting-control">
+                            <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center">
+                                <img src="Assets/light-bulb.png" class="control-icon z-5" alt="control-icon">
+                            </div>
+                            <span class="text-center z-5">Lighting</span>
+                            <div class="on position-absolute"></div><!-- backshadow-->
+                        </div>
+                        <!-- DISPLAY CONTROLS -->
+                        <div class="tab-wrap off z-10" id="display-control">
+                            <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center">
+                                <img src="Assets/display-grey.png" class="control-icon z-5" alt="control-icon">
+                            </div>
+                            <span class="text-center z-5">Connectivity</span>
+                            <div class="d-none position-absolute"></div><!-- backshadow-->
+                        </div>
+                    </aside>
+
+                    <!-- TECH SETTINGS -->
+                    <aside class="tab-wrap align-self-center" id="settings-icon-wrap">
+                        <div class="control-icon-wrap d-flex flex-row center">
+                            <img src="Assets/gear.png" class="control-icon" alt="control-icon">
+                        </div>
+                        <span class="text-center z-5 d-none">Settings</span>
+                    </aside>
+                </section>
+                <div id="po-backshadow" class="d-none"></div><!-- power off prompt backshadow -->
+            </main>
+    </div>
+</body>
+<script src="Javascript/globalCode.js"></script>
+<script src="Javascript/jquery.min.js"></script>
+<script src="Javascript/popper-base.min.js"></script>
+<script src="Javascript/bootstrap.min.js"></script>
+<script src="Javascript/timeAndLocation.js"></script>
+<script src="Javascript/Number_Related_Code.js"></script>
+<script src="Javascript/moment.min.js"></script>
+<script src="Javascript/functionsOnLoad.js"></script>
+<script src="Javascript/topLeftControls.js"></script>
+<script src="Javascript/recordTimer.js"></script>
+<script src="Javascript/powerButton.js"></script>
+</html>

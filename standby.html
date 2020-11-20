@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+  <link rel="stylesheet" href="CSS_SCSS/bootstrap.min.css">
+  <link rel="stylesheet" href="CSS_SCSS/style.css">
+  <title></title>
+</head>
+<body class="d-flex justify-content-center">
+    <div class="main-wrap align-self-center bg-additional transition3" style="filter: brightness(.2);"> <!-- wrap for pretend tsw are-->
+
+      <main class="bg-transparent d-flex text-light w100 position-relative">
+
+        <!-- button covering tp surface area-->
+        <button class="outline-none border-0 bg-main w-100" type="button"><a class="d-block h-100" href="index.html" style="pointer-events: none;">
+          <div class="centered position-fixed"> <!-- univeristy logo-->
+            <h1><img src="Assets/university-logo.png" class="" style="width: 650px;"></h1>
+            <h2 class="display-3 position-relative text-light" style="top: 100px;">Touch to start</h2>
+          </div><!-- shutdown confirmation-->
+        </a></button>
+
+        <div id="po-backshadow" class="d-none"></div><!-- power off prompt backshadow -->
+      </main>
+    </div>
+</body>
+<script defer>
+  window.addEventListener('load', () => document.querySelector(".main-wrap").style = "filter: brightness(1);" );
+  setTimeout(() => {
+    document.querySelector('a').style = "";
+  }, 3500);
+</script>
+<!-- <script src="Javascript/globalCode.js"></script>
+<script src="Javascript/jquery.min.js"></script>
+<script src="Javascript/popper-base.min.js"></script>
+<script src="Javascript/bootstrap.min.js"></script>
+<script src="Javascript/timeAndLocation.js"></script>
+<script src="Javascript/Number_Related_Code.js"></script>
+<script src="Javascript/moment.min.js"></script>
+<script src="Javascript/functionsOnLoad.js"></script>
+<script src="Javascript/topLeftControls.js"></script>
+<script src="Javascript/recordTimer.js"></script>
+<script src="Javascript/powerButton.js"></script> -->
+</html>

@@ -1,0 +1,344 @@
+body {
+  height: 100vh;
+}
+
+main {
+  width: 842px;
+  height: 525px;
+}
+
+div {
+  padding: 0;
+  margin: 0;
+}
+
+@-webkit-keyframes shrink-expand {
+  from {
+    width: 45px;
+  }
+  to {
+    width: 30%;
+    height: 15%;
+  }
+  from {
+    width: 30%;
+    height: 15%;
+  }
+  to {
+    width: 45px;
+  }
+}
+
+@keyframes shrink-expand {
+  from {
+    width: 45px;
+  }
+  to {
+    width: 30%;
+    height: 15%;
+  }
+  from {
+    width: 30%;
+    height: 15%;
+  }
+  to {
+    width: 45px;
+  }
+}
+
+.transition10 {
+  -webkit-transition: all 10s linear !important;
+  transition: all 10s linear !important;
+}
+
+.transition3 {
+  -webkit-transition: all 3s cubic-bezier(0.4, 0, 1, 1) !important;
+  transition: all 3s cubic-bezier(0.4, 0, 1, 1) !important;
+}
+
+.transition1 {
+  -webkit-transition: all 1s cubic-bezier(0.4, 0, 1, 1) !important;
+  transition: all 1s cubic-bezier(0.4, 0, 1, 1) !important;
+}
+
+#po-backshadow {
+  background: black;
+  -webkit-filter: brightness(0.7);
+          filter: brightness(0.7);
+  height: 100%;
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+.centered {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.z-5 {
+  z-index: 5;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.fs-3r {
+  font-size: 3rem;
+}
+
+.bg-main {
+  background: rgba(50, 54, 58, 0.57);
+}
+
+.bg-additional {
+  background: radial-gradient(#000000eb, #806a6a);
+}
+
+.on {
+  background: deepskyblue;
+  border: 0.1px solid deepskyblue;
+  border-radius: 50px;
+  -webkit-box-shadow: -2px 0px 37px 35px deepskyblue;
+          box-shadow: -2px 0px 37px 35px deepskyblue;
+  height: 0px;
+  opacity: .5 !important;
+  width: 0px;
+}
+
+.on-secondary {
+  background: white;
+  border: 0.1px solid white;
+  border-radius: 50px;
+  -webkit-box-shadow: -2px 0px 37px 35px white;
+          box-shadow: -2px 0px 37px 35px white;
+  height: 0px;
+  opacity: .5 !important;
+  width: 0px;
+  -webkit-animation-duration: 0s;
+          animation-duration: 0s;
+}
+
+.easyinfo-wrap {
+  white-space: nowrap;
+}
+
+.bar-height {
+  height: 90px;
+}
+
+.control-section {
+  height: 345px;
+  margin-left: 105px;
+  margin-right: 105px;
+}
+
+.control-icon-wrap {
+  width: 50px;
+  height: 50px;
+  z-index: 5;
+}
+
+.tl-control-icon, .control-icon {
+  height: 45px;
+  width: 45px;
+}
+
+.tl-control-icon, .control-icon, .control-icon {
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+.control-icon {
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+.control-icon:active {
+  height: 60%;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  width: 60%;
+}
+
+#university-logo {
+  width: 270px;
+}
+
+.tab-parent {
+  width: 500px;
+}
+
+.tab-wrap {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 75px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100px;
+}
+
+#tlControls {
+  position: absolute;
+}
+
+.small-icon, .small-icon-wrap, .small-icon:active {
+  width: 35px;
+  height: 35px;
+}
+
+#record-ctrls-wrap {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.record-element-wrap {
+  height: 35px !important;
+  width: 35px !important;
+}
+
+.record-element.small-icon, .record-element.small-icon-wrap {
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+.record-element.small-icon-wrap:active, .record-element.small-icon:active {
+  width: 27px;
+  height: 27px;
+}
+
+#stop-button {
+  background: darkgrey;
+  border-radius: 3px;
+}
+
+.stop-button:active {
+  width: 27px !important;
+  height: 27px !important;
+}
+
+.pause-shadow {
+  -webkit-box-shadow: -2px 0px 15px 17px white !important;
+          box-shadow: -2px 0px 15px 17px white !important;
+  border-color: white !important;
+  -webkit-animation-duration: 0s !important;
+          animation-duration: 0s !important;
+}
+
+#tl-return {
+  opacity: 0;
+  top: -2px;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  width: 30px;
+}
+
+.mic-label-wrap {
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 70px;
+  position: absolute;
+  width: 100%;
+}
+
+.audio-fader {
+  margin: 0 !important;
+  outline: none;
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.lighting-label-wrap {
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 35px;
+  position: absolute;
+  width: 100%;
+}
+
+.range-wrap {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.secondary-range-wrap {
+  margin-left: 15px;
+  width: 100px;
+}
+
+.secondary-range {
+  width: 100px;
+  opacity: 0;
+  -webkit-transition: .1s all linear;
+  transition: .1s all linear;
+}
+
+/*input[type="range"]*/
+/*
+ * 1. Set to 0 width and remove border for a slider without a thumb
+ */
+.off-confirm-box {
+  background: rgba(64, 68, 72, 0.95);
+  border-radius: 15px;
+  border: 1px solid darkgray;
+  border-style: groove;
+  -webkit-box-shadow: 0 0 5px 3px #a9a9a9a6;
+          box-shadow: 0 0 5px 3px #a9a9a9a6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 220px;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  width: 380px;
+  z-index: 500;
+}
+
+.alert-top {
+  top: -500px;
+}
+/*# sourceMappingURL=style.css.map */
