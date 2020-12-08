@@ -1,3 +1,5 @@
+** PROGRAMMER NOTES **
+
 //controlable values
 - FADERS
     - find the source fader (eg <input type="range">) and add it to the dom and get its values  
@@ -15,3 +17,6 @@
         - will give you the current value of the brightness range
     - masterVolumeRange.value 
         - will give you the current value of the master-volume range
+-PASSCODE
+    -pwCheck, is the variable of users' input
+    -pwCode, is the variable of the passcode 
