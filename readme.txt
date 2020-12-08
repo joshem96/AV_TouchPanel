@@ -1,5 +1,7 @@
 ** PROGRAMMER NOTES **
 
+view the github link at https://joshem96.github.io/AV_TouchPanel/
+
 //controlable values
 - FADERS
     - find the source fader (eg <input type="range">) and add it to the dom and get its values  
