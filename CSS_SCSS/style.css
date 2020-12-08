@@ -317,10 +317,6 @@ div {
   transition: .1s all linear;
 }
 
-/*input[type="range"]*/
-/*
- * 1. Set to 0 width and remove border for a slider without a thumb
- */
 .off-confirm-box {
   background: rgba(64, 68, 72, 0.95);
   border-radius: 15px;
@@ -340,5 +336,121 @@ div {
 
 .alert-top {
   top: -500px;
+}
+
+.btn-number {
+  height: 50px;
+  width: 50px;
+}
+
+#number-btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 122px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.number-btn {
+  height: 50px;
+  width: 50px;
+}
+
+.number-btn-wrap {
+  width: 55px !important;
+  height: 55px !important;
+}
+
+#power-mode {
+  width: 380px;
+  height: 220px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#pw-input-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+#ts-form {
+  position: absolute;
+  bottom: 0;
+  height: 175px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+#ts-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute !important;
+  width: 100%;
+}
+
+.pw-bbl {
+  border: .2px solid black;
+  border-radius: 50px;
+  margin: 0px 5px;
+  width: 22px !important;
+  height: 22px !important;
+}
+
+.bbl-shadow {
+  background: white;
+  border: .1px solid white;
+  border-radius: 50px;
+  -webkit-box-shadow: 0px 0px 8px 6px white;
+          box-shadow: 0px 0px 8px 6px white;
+  height: 0px;
+  opacity: .5 !important;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  width: 0px;
+}
+
+#backspace {
+  margin-left: 5px;
+  position: relative;
+  top: -7px;
+  cursor: pointer;
+}
+
+#backspace:active {
+  -webkit-filter: brightness(85%);
+          filter: brightness(85%);
 }
 /*# sourceMappingURL=style.css.map */

@@ -54,7 +54,7 @@
                         </div>
                         <!-- local exit/return -->
                         <div class="tl-return d-none" id="tl-return-wrap">
-                            <img src="Assets/back-arrow-white.png" class="float-right d-none position-relative tl-return" id="tl-return" style="">
+                            <img src="Assets/back-arrow-white.png" class="float-right d-none position-relative tl-return" id="tl-return" style>
                         </div>
                         <!-- OPTIONAL TIMER -->
                         <div class="position-absolute d-none" data-displayed="true" id="record-timer-wrap" style="bottom: 0">
@@ -202,12 +202,52 @@
                         </div>
                         <span class="text-center d-none" >Power</span>
                         <div class="centered off-confirm-box flex-column justify-content-around align-items-center alert-top"> <!-- alert box-->
-                            <div class="center" style="width: 50px; height: 50px;"><span id="countdown" class="h3 m-0">30</span></div><!-- countdown node-->
-                            <span class="h1 position-relative m-0 text-center" style id="alert-text">Are you sure?</span>
-                            <div class="d-flex flex-row justify-content-around w-100"> <!-- button wrap href="javascript:standbyTimer('standby.html')">-->
-                                <button style="width: 100px; height: 50px;" class="btn btn-light text-decoration-none" id="yesBtn" onclick="powerOff();"><a class="h3 text-dark text-decoration-none" href="javascript:powerOff()">Yes</a></button>
-                                <button style="width: 100px; height: 50px;" class="btn btn-light text-decoration-none no-btn-element" id="noBtn"><span class="h3 no-btn-element">No</span></button>
+
+                            <div id="power-mode"> <!-- powermode pop-up option-->
+                                <div class="center align-self-center" style="width: 50px; height: 50px;"><span id="countdown" class="h3 m-0">30</span></div><!-- countdown node/main alert-->
+                                <span class="h1 position-relative m-0 text-center" style id="alert-text">Are you sure?</span>
+                                <div class="d-flex flex-row justify-content-around w-100"> <!-- button wrap href="javascript:standbyTimer('standby.html')">-->
+                                    <button style="width: 100px; height: 50px;" class="btn btn-light text-decoration-none" id="yesBtn" onclick="powerOff();"><a class="h3 text-dark text-decoration-none" href="javascript:powerOff()">Yes</a></button>
+                                    <button style="width: 100px; height: 50px;" class="btn btn-light text-decoration-none no-btn-element center" id="noBtn">
+                                        <span class="h3 no-btn-element m-0">No</span>
+                                        <img src="Assets/thumbs-up.png" class="small-icon d-none" id="thumb">
+                                    </button>
+                                </div>
                             </div>
+
+                            <div class="d-none position-relative" id="ts-wrap"> <!-- tech settings -->
+                                <div class="position-relative align-self-center" style="width: 97%; height: 95%;"> <!-- space around elements-->
+                                    <img alt="exit" class="small-icon position-relative float-right" id ="ts-return" src="Assets/cancel_grey.png" style="margin: 3px 3px 0px 0px;" onclick="pwReset();"> <!-- return arrow -->
+                                    <form id="ts-form"> <!-- number buttons and password input-->
+                                        <div id="pw-input-wrap"> 
+                                        <!-- password input -->
+                                            <div class="pw-bbl bg-dark bbl-shadow"></div>
+                                            <div class="pw-bbl bg-dark"></div>
+                                            <div class="pw-bbl bg-dark"></div>
+                                            <div class="pw-bbl bg-dark"></div> 
+                                            <div id="backspace"><img class="small-icon" onclick="bsFunct();" src="Assets/backspace_grey.png"></div> <!-- backspace for bubble input-->
+                                        </div>
+                                        
+                                        <div id="number-btn-container"> <!-- number buttons -->
+                                            <div class="d-flex justify-content-around w-100">
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="1" id="pw-1"></div>            
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="2" id="pw-2"></div>
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="3" id="pw-3"></div>
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="4" id="pw-4"></div>
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="5" id="pw-5"></div>
+                                            </div>
+                                            <div class="d-flex justify-content-around w-100">
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="9" id="pw-6"></div>
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="7" id="pw-7"></div>
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="8" id="pw-8"></div>
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="9" id="pw-9"></div>
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="0" id="pw-0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
                         </div><!-- shutdown confirmation-->
                         <!-- <div class="position-absolute" style="opacity:0; transition: all .15s ease-in-out;"></div>backshadow -->
                     </aside>
@@ -243,7 +283,7 @@
                     <!-- TECH SETTINGS -->
                     <aside class="tab-wrap align-self-center" id="settings-icon-wrap">
                         <div class="control-icon-wrap d-flex flex-row center">
-                            <img src="Assets/gear.png" class="control-icon" alt="control-icon">
+                            <img src="Assets/gear.png" class="control-icon" alt="control-icon" id="ts-icon">
                         </div>
                         <span class="text-center z-5 d-none">Settings</span>
                     </aside>
@@ -263,4 +303,5 @@
 <script src="Javascript/topLeftControls.js"></script>
 <script src="Javascript/recordTimer.js"></script>
 <script src="Javascript/powerButton.js"></script>
+<script src="Javascript/passcode.js"></script>
 </html>

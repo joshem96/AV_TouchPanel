@@ -31,3 +31,8 @@ $button-shadow-light:white;
 @mixin custom-transition($time){
     
 }
+
+@mixin square-me($size){
+    width: $size !important;
+    height: $size !important;
+}
