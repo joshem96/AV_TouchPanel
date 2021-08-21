@@ -1,743 +1,307 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <base href="https://joshem96.github.io/Wave/"> -->
-        <title>WAVEFM.TV</title>
-        <link rel="shortcut icon" href="Photos/display-photos/vaporwaveTwo.jpg">
-        <!-- CSS STYLING -->
-            <!--<link rel="stylesheet" href="Wave_CSS.css">  //original one page css styles -->
-            <link rel="stylesheet" href="CSS_Files/Header_Bar_Styles(minus-icon-styles).css">
-            <link rel="stylesheet" href="CSS_Files/Global_CSS_Styles.css">
-            <link rel="stylesheet" href="CSS_Files/Preferences_Styles.css">
-            <link rel="stylesheet" href="CSS_Files/Movie_Mode_Styles.css">
-            <link rel="stylesheet" href="CSS_Files/SoundControl_Styles.css">
-            <link rel="stylesheet" href="CSS_Files/InfoView_Styles.css">
-            <link rel="stylesheet" href="CSS_Files/PhotoView_Styles.css">
-            <link rel="stylesheet" href="CSS_Files/MediaQueries(AdpativeStyling).css">
-        <!-- google font links -->
-            <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css?family=Audiowide&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css?family=Audiowide|Sawarabi+Gothic&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
-        <style id="preferences"></style>
-<!--        <style id="clear-select-all"></style>-->
-    </head>
-<body>
-    
-    <!-- TOP SCREEN NAV ANCHOR -->
-        <div id = "topScreen" ></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+  <link rel="stylesheet" href="CSS_SCSS/bootstrap.min.css">
+  <link rel="stylesheet" href="CSS_SCSS/style.css">
+  <title></title>
+</head>
+<body class="d-flex justify-content-center">
 
-    <!-- BACKGROUND IMAGE -->
-        <div id = "background"></div>
+    <div class="main-wrap align-self-center bg-additional" style="filter: brightness(1);"> <!-- wrap for pretend tsw are-->
 
-    <!--HEADERBAR / MAIN INTERFACE
-    -------------------------------------------------------------------------------------------------------------------->
-        <div class = "headerWrap positionFix">
-            <!-- INTERFACE ICONS (NOT INCLUDING THE ACTUAL INTERFACE CONTROLS) -->
-            <header class="page-head" style ="top:0; position: fixed;" >
-                <!--LEFTSIDE MAIN LOGO-->
-                <a href = "#topScreen">
-                    <div class="waveFm iconHover visibilityNone" onclick="normalClickAudioFunction()">wavefm</div>
-                    <audio class = "normalClick"><source src="" type="audio/WAV"></audio>
-                </a>
-                <!--SEARCHBOX-->
-                <form class="searchBoxWrap">
-                    <input type="text" class="search-box" placeholder="Search " onsubmit="return false">
-                </form>
-                <!--ICON WRAP-->
-                <div class = "iconWrap userSelectNone">
-                    <!--DISPLAY ICON-->
-                    <div class = "FnormalClick  iconMargin iconHover navIcon displayButton" onclick="normalClickAudioFunction()">
-                        <audio class = "normalClickAudio" > <source src="Sound_Related/Button_Clicks/ButtonEject_Four.wav" type="audio/WAV"></audio>
-                        <a><img src = "Photos/Tool-Photos/display-grey.png" class = "displayImg" title = "change photo display"></a>
-                    </div>
-                    <!-- TAB BUTTONS / / ICONS USER WILL MOSTLY BE INTERACTING WITH -->
-                    <div class = "tabButtons" style="display: inline-flex;">
-                        <!--PREFERANCE ICON-->
-                        <div class = "iconMargin iconHover navIcon preferencesButton off controlIcon" title = "photo preferance">
-                            <a>
-                                <audio class = "openSound"> <source src="Sound_Related/Button_Clicks/OnOffToggle_On_One.Two.wav" type="audio/WAV"></audio>
-                                <audio class = "closeSound"> <source src="Sound_Related/Button_Clicks/OnOffToggle_Off_One.wav" type="audio/WAV"></audio>
-                                <img src="Photos/Tool-Photos/preferancesIon.png" class = "preferencesIcon" id="preferencesButton">
-                            </a>
-                        </div>
-                        <!--MOVIE MODE ICON-->
-                        <div class = "movieModeTab iconMargin iconHover navIcon movieModeButton off controlIcon" title = "movie mode"> 
-                            <audio class = "tabSound"> <source src="Sound_Related/Button_Clicks/ButtonEject_One.Two.wav" type="audio/WAV"></audio>
-                            <a>
-                                <img src = "Photos/Tool-Photos/play-black.png" class = "moviemodeImg b " id="movieModeButton">
-                            </a>
-                        </div>
-                        <!-- SOUND CONTROL -->
-                        <div class = " iconMargin iconHover navIcon soundControlButton off controlIcon" title = "sound control" > 
-                            <audio class = "tabSound"> <source src="Sound_Related/Button_Clicks/ButtonEject_One.Two.wav" type="audio/WAV"></audio>
-                            <a>
-                                <img src = "Photos/Tool-Photos/soundControl.png" class = "soundControlIcon" id="soundControlButton" >
-                            </a>
-                        </div>
-                    </div>
-                    <!--INFO ICON-->
-                    <div class = "iconMargin iconHover navIconTwo infoButton off" id ="websiteLogo" title = "information about wavefm">
-                        <a>
-                           <img src ="Photos/Tool-Photos/info.png" id="infoImgSource" style = "margin-right: 10px;">
-                        </a>
-                    </div>
-                </div>
-                <!-- PURPLE BAR UNDERNEATH HEADER BAR / INTERFACE -->
-                <img src = "Photos/Tool-Photos/wave bar line new.png" id = "waveLine" class = "positionFix zIndex5K topBarWaveLine">
-            </header>
-            <!--PREFERANCE CHECKBOX / PREFERNCE CONTROLS CONSOLE-->
-            <div class = "dnPrefContainer controlTab displayNone">
-                <div class = "prefContainer userSelectNone">
-                    <div class = "preferenceCheckbox">
-                        <!-- QUICK CLICK SOUND AUDIO -->
-                        <audio class="quickClickAudio"><source src="Sound_Related/Button_Clicks/quickClick_ButtonEject_Three.wav" type="audio/WAV"></audio>
-                        <div class ="formBox adaptiveFormBox comViewOff">
-                              <!-- OUTRUN CHECKBOX -->
-                              <div class = "fakeCheckBoxWrap">
-                                  <div class="formCheckBoxBorder">
-                                      <div class="formCheckBox newCheckBox retroCB unchecked" id="retro" onclick="quickClickAudioFunction()"></div>
-                                  </div>
-                                  <p style="align-self: center; margin-left: 8px;">Outrun</p>
-                              </div>
-                              <!-- VAPORWAVE CHECKBOX -->
-                              <div class ="fakeCheckBoxWrap">
-                                  <div class="formCheckBoxBorder">
-                                      <div class="formCheckBox newCheckBox vaporWaveCB unchecked" id="vaporWave" onclick="quickClickAudioFunction()"></div>
-                                  </div>
-                                  <p style="align-self: center; margin-left: 8px;">Vaporwave</p>
-                              </div>
-                              <!-- CYBERPUNK CHECKBOX -->
-                              <div class ="fakeCheckBoxWrap">                            
-                                  <div class="formCheckBoxBorder">
-                                      <div class="formCheckBox  newCheckBox cyberPunkCB checked" id="cyberPunk" onclick="quickClickAudioFunction()"></div>
-                                  </div>
-                                  <p style="align-self: center; margin-left: 8px;">Cyberpunk</p>
-                              </div>
-                        </div>
-                    </div>
-                    <!-- IMAGE RESET BUTTON -->
-                    <div class="clear-select" >
-                        <audio class="innerButtonClickAudio"><source src="Sound_Related/Button_Clicks/ButtonEject_Three.wav" type="audio/WAV"></audio>
-                        <button class="buttonStyle" id="imageReset" onclick="innerButtonClickAudioFunction()">image reset</button>
-                    </div>
-                </div>
-            </div>
-            <!--MOVIEMODE CONTROL CONSOLE -->
-            <div class = "movieModeContainer adaptiveMovieModeContainer userSelectNone controlTab displayNone">
-                <!-- ON/OFF BUTTON -->
-                <div class = "movieModeToggleWrap" onclick="innerButtonClickAudioFunction()">
-                    <div class="movieModeToggle buttonStyle">
-                        <!-- POWER SYMBOL OFF -->
-                        <img src="Photos/Tool-Photos/powerSymbolOff.png" class="powerSymbol PowerSymbolOff">
-                        <!-- POWER SYMBOL ON -->
-                        <img src="Photos/Tool-Photos/powerSymbolOn.png" class="powerSymbol PowerSymbolOn displayNone">
-                    </div>
-                </div>
-                <!--PURPLE DIV DIVIDER-->
-                <div class = "movieModeDivider"></div>
-                <!-- SPEED BUTTONS -->
-                <div class="radioContainer" onclick="quickClickAudioFunction()">
-                    <p style = "color:black; position:absolute; font-size: 10px; top:9;">speed</p>
-                    <label><input type="radio" class = "radioOne b"><span class="radio"></span></label>
-                    <label><input type="radio" class = "radioTwo a" checked><span class="radio"></span></label>
-                    <label><input type="radio" class = "radioThree b"><span class="radio"></span></label>
-                </div>
-            </div>
-            <!-- SOUND CONTROL CONSOLE --> 
-            <div class = "soundControlContainer controlTab adaptiveSoundControlContainer userSelectNone displayNone">
-                <div class="soundControlWrap">
-                    <!-- MUSIC CONTROL -->
-                    <div class = "musicSectionWrap soundExtraMargin" title="music on/off button">
-                        <!--QUICKCLICK SFX SOURCE -->
-                        <audio class = "quickClickTwoAudio" > <source src="Sound_Related/Button_Clicks/quickClick_ButtonEject_Two.wav" type="audio/WAV"></audio>
-                        <!-- SONGLOOP SOURCE -->
-                        <audio loop class="songLoop">
-                            <source src="Sound_Related/Images_Of_You_Loop.wav" type="audio/WAV">
-                        </audio>
-                        <!-- MUSIC ICON -->
-                        <div class="musicIconDesktop">
-                            <!-- MUSIC ICON ON-->
-                            <img src="Photos/Tool-Photos/musicLogoOn_Grey.png" alt = "sound on/off" class = "musicOnIconDesktop soundIcon displayNone" onclick="quickClickTwoAudioFunction()">
-                            <!-- MUSIC ICON OFF-->
-                            <img src="Photos/Tool-Photos/musicLogoOff_Grey.png" alt = "sound on/off" class = "musicMuteIconDesktop soundIcon" onclick="quickClickTwoAudioFunction()">
-                        </div>
-                        <!-- SOUND LEVEL -->
-                        <div class="soundLevelContainer musicLevelContainer displayNone" id="soundLevelContainer">
-                            <div class="barOn musicLevelBar soundLevelBar musicLevelOne" onclick="quickClickAudioFunction()" id="musicLevelOne"></div>
-                            <div class="barOff musicLevelBar soundLevelBar musicLevelTwo" onclick="quickClickAudioFunction()" id="musicLevelTwo"></div>
-                            <div class="barOff musicLevelBar soundLevelBar musicLevelThree" onclick="quickClickAudioFunction()" id="musicLevelThree"></div>
-                            <div class="barOff musicLevelBar soundLevelBar musicLevelFour" onclick="quickClickAudioFunction()" id="musicLevelFour"></div>
-                            <div class="barOff musicLevelBar soundLevelBar musicLevelFive" onclick="quickClickAudioFunction()" id="musicLevelFive"></div>
-                        </div>
-                    </div>
-                    <!-- PURPLE DIVIDER BETWEEN MUSIC/SFX ICON -->
-                    <div class = "movieModeDivider" style="margin: 0px 7px 0px 7px"></div>
-                    <!-- SFX CONTROL -->
-                    <div class = "sfxSectionWrap soundExtraMargin" title="sound effects on/off button">
-                        <!--QUICKCLICK SFX SOURCE -->
-                        <audio class = "quickClickTwoAudio" ><source src="Sound_Related/Button_Clicks/quickClick_ButtonEject_Two.wav" type="audio/WAV"></audio>
-                        <!-- SFX ICON -->
-                        <div class = "sfxIconDesktop ">
-                            <!-- MUSIC ICON ON -->
-                            <img src="Photos/Tool-Photos/sound_On.png" alt = "sound on/off" class = "sfxOnIconDesktop soundIcon" onclick="quickClickTwoAudioFunction()">
-                            <!-- MUSIC ICON OFF -->
-                            <img src="Photos/Tool-Photos/sound_Mute.png" alt = "sound on/off" class = "sfxMuteIconDesktop soundIcon displayNone" onclick="quickClickTwoAudioFunction()">
-                        </div>
-                        <!-- SOUND LEVEL -->
-                        <div class="soundLevelContainer sfxLevelContainer" id="soundLevelContainer">
-                            <div class="barOn sfxLevelBar soundLevelBar sfxLevelOne" onclick="quickClickAudioFunction()" id="sfxLevelOne"></div>
-                            <div class="barOn sfxLevelBar soundLevelBar sfxLevelTwo" onclick="quickClickAudioFunction()" id="sfxLevelTwo"></div>
-                            <div class="barOn sfxLevelBar soundLevelBar sfxLevelThree" onclick="quickClickAudioFunction()" id="sfxLevelThree"></div>
-                            <div class="barOn sfxLevelBar soundLevelBar sfxLevelFour" onclick="quickClickAudioFunction()" id="sfxLevelFour"></div>
-                            <div class="barOff sfxLevelBar soundLevelBar sfxLevelFive" onclick="quickClickAudioFunction()" id="sfxLevelFive"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-    <!--MAIN SECTION / PHOTO SECTION
-    -------------------------------------------------------------------------------------------------------------------->
-        <div id="MyPhotoSection">
-            <!--INFO SECTION (when info button clicked)
-            -------------------------------------------------------------------------------------------------------------------->
-            <div class="infoPicWrap infoPicCenter displayNone" style="text-align: center;">
-                <div class="infoPicContainer infoElement">
-                        <!-- WHOLE PAGE BRIGHTNESS FILTER -->
-                        <div id="infoPicBrightnessFilter" class="infoElement"></div>
-                        <!-- INFO NAV OPTIONS -->
-                        <div class="infoElement infoPicSizeAdjust" style = "padding-bottom: 8px;">
-                            <nav class = "infoPicNavigationRow infoPicRow infoElement" id="infoNavigationRow">
-                                <!-- EXIT BUTTON -->
-                                <p style="margin-left:6px; z-index: 5000;" id="exitInfo"  class="iconHover infoNavElement" onclick="quickClickAudioFunction()">
-                                    <strong>X</strong>
-                                </p>
-                                <!-- MENU ICON -->
-                                <img src="Photos/Tool-Photos/menuIconTwo.png" style="z-index: 5000;"  class="iconHover infoNavElement" id="infoMenuIcon" onclick = "quickClickAudioFunction()">
-                                <!-- INFO MENU OPTIONS -->
-                                <nav id="infoMenuNav" class="infoNavElement"  style="z-index: 5000;">
-                                    <span id="menuOptionAbout" class="infoMenuElement menuElementSelected" onclick="quickClickAudioFunction()">About</span>
-                                    <span id="menuOptionInstructions" class="infoMenuElement" onclick="quickClickAudioFunction()">Instructions</span>
-                                    <span id="menuOptionContact" class="infoMenuElement" onclick="quickClickAudioFunction()">Contact</span>
-                                </nav>
-                            </nav>
-                        </div>
-                        <!--ABOUT THE PAGE-->
-                        <div id="infoAboutDisplayWrap" class = "infoPicAbout infoElement menuOptionDisplayElement">
-                            <p style="align-self: center;"><span class = "infoDescription">    
-                            Wavefm is a photo viewing platform which consists purely of vaporwave, cyberpunk and outrun images. </span><br>
-                            <span class = "infoEnjoy">Enjoy the journey</span> <br>
-                            <span class = "infoWavefm">wavefm</span></p>
-                        </div>
-                        <!-- INSTRUCTIONS -->
-                        <div id ="infoInstructionsDisplayWrap" class = "displayNone menuOptionDisplayElement infoElement" style="text-align: initial;">
-                            <div class = "infoPicSizeAdjust" >
-                                <!-- DISPLAY TOGGLE INSTRUCTIONS -->
-                                <div class = "infoPicRow">
-                                    <img src = "Photos/Tool-Photos/display-grey.png" title = "change photo display" class = "infoImgMargin displayImg">
-                                        <p><span class = "controlFont"><strong>Display:</strong> This button toggles between the 3 display modes.   
-                                        </span></p>
-                                </div><br>
-                                <!-- PREFERENCES INSTRUCTIONS -->
-                                <div class = "infoPicRow">
-                                    <img src="Photos/Tool-Photos/preferancesIon.png" class = "preferencesIcon infoImgMargin">
-                                       <p><span class = "controlFont"><strong>Preferences:</strong> When clicked, you can select to view either cyberpunk, vaporwave or outrun images.</span>          
-                                        </p>
-                                </div><br>
-                                <!-- MOVIE MODE INSTRUCTIONS -->
-                                <div class = "infoPicRow">
-                                    <img src = "Photos/Tool-Photos/play-black.png" class = "moviemodeImg infoImgMargin">
-                                       <p><span class = "controlFont"><strong>Movie mode:</strong> Once activated, you enter a visually enticing slide show with 3 speeds to choose from.
-                                       </span></p>
-                                </div><br>
-                                <!-- SOUND CONTROL INSTRUCTIONS -->
-                                <div class = "infoPicRow">
-                                    <img src = "Photos/Tool-Photos/soundControl.png" class = "soundControlIcon infoImgMargin">
-                                       <p><span class = "controlFont"><strong>Sound control:</strong> Giving you the option to turn on/off and control the volume of music and sound effects.
-                                       </span> </p>
-                                </div><br>
-                                <!-- INFO MENU INSTRUCTIONS -->
-                                <div class = "infoPicRow">
-                                    <img src ="Photos/Tool-Photos/info.png" id="infoImgSource" class = "infoImgMargin" style="height: 37px; width: 37px">
-                                       <p><span class = "controlFont"><strong>Info mode:</strong> Where you can find some information about wavefm.
-                                        </span></p>
-                                </div><br>
-                                <!-- HINT -->
-                                <div class="infoPicRow">
-                                    <p style="margin:0 auto; text-align: center;"> <span class = "controlFont"> <strong>HINT: use the search bar to fine-tune the type of images you would like to see.</strong></span></p>
+            <main class="bg-main d-flex text-light w100 position-relative">
+
+                <!-- TOP BAR -->
+                <section class="border-danger  bar-height d-flex justify-content-between  position-absolute w-100" id="top-bar"> 
+                    <!-- TOPLEFT CONTROLS -->
+                    <aside class="align-items-center align-self-center border-primary d-flex h-75 justify-content-around justify-self-start ml-2 w-25" id="tl-controls">
+                        <!-- record button-->
+                            <div class="control-icon-wrap tl-ctrl-off record-button" id="record-ctrls-wrap" data-state="standby"> <!-- inner wrap-->
+                                <div class="center record-element-wrap" id="record-button-wrap"> <!-- record icon wrap -->
+                                    <img src="Assets/record-off.png" class="tl-control-icon record-element record-button" alt="record-image" id="record-button"> <!-- record ICON -->
+                                </div>
+                                <div class="d-none record-element record-element-wrap small-icon-wrap" id="play-button-wrap">
+                                    <img src="Assets/play-button.png" class="d-none record-element small-icon" alt="play button" id="play-button"> <!-- play -->
+                                </div>
+                                <div class="d-none record-element record-element-wrap small-icon-wrap" id="pause-button-wrap" style="height: 35px !important; width: 35px !important"> <!-- pause wrap -->
+                                    <img src="Assets/pause.png" class="d-none record-element small-icon" alt="pause button" id="pause-button"> <!-- pause -->
+                                    <div class="position-absolute record-element"></div> <!-- for backshadow when pressed-->
+                                </div>
+                                <div class="d-none small-icon-wrap record-element record-element-wrap" id="stop-button-wrap">
+                                    <div src="Assets/"class="d-none record-element small-icon" id="stop-button"></div> <!-- stop -->
                                 </div>
                             </div>
-                        </div>
-                        <!-- CONTACT US -->
-                        <div id="infoContactDisplayWrap" class ="displayNone infoElement menuOptionDisplayElement">
-                            <h1 class="contactFont"> Contact us.</h1>
-                            <p id class="emailLinkWords zIndex5k infoContactElement">
-                                <span style="display: block;">Feel free to email us at </span>
-                            </p>
-                            <p id class="emailLinkWords zIndex5k infoContactElement">
-                                <a href="mailto:info@wavefm.tv" style="display: block; margin-top: -45px;"><span id="emailLink">info@wavefm.tv</span></a>
-                            </p>
-                            <div id="socialMediaLinksWrap" class="zIndex5k infoContactElement">
-                                <img src="Photos/Tool-Photos/instagram.png" class="socialMediaIcon">
-                                <img src="Photos/Tool-Photos/twitter.png" class="socialMediaIcon">
-                                <img src="Photos/Tool-Photos/facebook.png" class="socialMediaIcon">
-                                <img src="Photos/Tool-Photos/pinterest.png" class="socialMediaIcon">
-                                <strong class="contactFont" id="comingSoon" style="font-size: 3em;">COMING SOON!</strong>
+                        <!-- volume control-->
+                        <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center tl-ctrl-off range-element sound-button" id="sound-button-wrap">
+                            <!-- <div class="w-auto h-auto"> -->
+                                <img src="Assets/sound-on_edited.png" class="tl-control-icon sound-button" alt="brightness-image" id="sound-button" data-state="unmuted"> <!-- ICON -->
+                                <!-- <div class="mute-line"></div> -->
+                            <!-- </div> -->
+                            <div class="secondary-range-wrap d-none" id="master-volume-range-wrap">
+                                <input type="range" class="d-none secondary-range master-volume-range"> <!-- range slider -->
                             </div>
                         </div>
-                </div>
-            </div>
-            <!-- Photoview section
-            --------------------------------------------------------------------------------------------------------------------->
-            <div class="photoViewSection displayNone" id="photoViewSection" style="visibility:hidden;">
-                <!--VIEW ONE // MY VIEW // class: mainImg
-                ------------------------------------------------------------------------------------->
-                <div class = "myView centered" id="myView">
-                    <!-- LEFT ARROW -->
-                    <div class="myViewArrowContainer">
-<!--                        <p id="arrowOne" class="arrow visibilityNone leftArrow newArrow" style>></p> -->
-						<img src ="Photos/Tool-Photos/navArrow.png" id="arrowOne" class="arrow leftArrow newArrow myViewArrow" style>
-                    </div>
-                    <!-- MYVIEW IMAGES -->
-                    <div id="myViewImageWrapper">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkOne.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img driving car cyberpunk city futuristic">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkTwo.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk space text">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkThree.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk music portrait text">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkFour.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk futuristic">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkFive.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkSix.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkSeven.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk music space technologic text">
-                        <img loading="lazy" src="Photos/display-photos/drivingShotOne.png" class = "mainImg displayImgRetro mainImgRetro displayNone img driving car grid city sun retro">
-                        <img loading="lazy" src="Photos/display-photos/drivingShotThree.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img driving car grid sun tree retro">
-                        <img loading="lazy" src="Photos/display-photos/drivingShotFour.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img driving car bit city text retro">
-                        <img loading="lazy" src="Photos/display-photos/drivingShotFive.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk pImgCity displayNone img driving car city cyberpunk">
-                        <img loading="lazy" src="Photos/display-photos/drivingShotSix.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img driving car city futuristic cyberpunk">
-                        <img loading="lazy" src="Photos/display-photos/drivingShotSeven.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img driving car cyberpunk city">
-                        <img loading="lazy" src="Photos/display-photos/gridPhotoOne.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img grid sun retro">
-                        <img loading="lazy" src="Photos/display-photos/gridPhotoTwo.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img grid sun retro">
-                        <img loading="lazy" src="Photos/display-photos/gridPhotoThree.png" class = "mainImg displayImgRetro mainImgRetro displayNone img grid city sun retro">
-                        <img loading="lazy" src="Photos/display-photos/gridPhotoFour.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img grid computer vaporwave text">
-                        <img loading="lazy" src="Photos/display-photos/gridPhotoSix.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img grid space retro">
-                        <img loading="lazy" src="Photos/display-photos/gridPhotoSeven.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img grid sun retro">
-                        <img loading="lazy" src="Photos/display-photos/gridPhotoEight.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img grid text space retro">
-                        <img loading="lazy" src="Photos/display-photos/gridPhotoNine.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img grid retro">
-                        <img loading="lazy" src="Photos/display-photos/cityShotOne.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img city sun retro">
-                        <img loading="lazy" src="Photos/display-photos/synthTreeOne.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img tree vaporwave">
-                        <img loading="lazy" src="Photos/display-photos/synthTreeTwo.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img tree sun text retro">
-                        <img loading="lazy" src="Photos/display-photos/synthTreeThree.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img tree vaporwave">
-                        <img loading="lazy" src="Photos/display-photos/synthwaveSunOne.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img sun space retro">
-                        <img loading="lazy" src="Photos/display-photos/synthwaveSunTwo.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img sun city space grid retro">
-                        <img loading="lazy" src="Photos/display-photos/portraitGraphicOne.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img portrait retro">
-                        <img loading="lazy" src="Photos/display-photos/portaitGraphicTwo.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img portrait movie text retro">
-                        <img loading="lazy" src="Photos/display-photos/gamePhotoOne.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img game text cyberpunk">
-                        <img loading="lazy" src="Photos/display-photos/paintingOne.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img city futuristic cyberpunk">
-                        <img loading="lazy" src="Photos/display-photos/arcadePhotoOne.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img arcade vaporwave">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveOne.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave retro computer">
-                        <img loading="lazy" src="Photos/display-photos/retroPhotoOne.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro">
-                        <img loading="lazy" src="Photos/display-photos/retroPhotoTwo.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro arcade game neon">
-                        <img loading="lazy" src="Photos/display-photos/retroThree.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro oldschool america">
-                        <img loading="lazy" src="Photos/display-photos/retroFour.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro game gameboy cat night">
-                        <img loading="lazy" src="Photos/display-photos/retroFive.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro tape teen">
-                        <img loading="lazy" src="Photos/display-photos/retroSix.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro car drive night">
-                        <img loading="lazy" src="Photos/display-photos/retroSeven.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro girl game anime">
-                        <img loading="lazy" src="Photos/display-photos/retroEight.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro futuristic mall city">
-                        <img loading="lazy" src="Photos/display-photos/retroNine.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro futuristic alien space">
-                        <img loading="lazy" src="Photos/display-photos/retroTen.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro hut day">
-                        <img loading="lazy" src="Photos/display-photos/retroEleven.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro teen bedroom">
-                        <img loading="lazy" src="Photos/display-photos/retroTwelve.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro futuristic city">
-                        <img loading="lazy" src="Photos/display-photos/retroThirteen.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro alien futuristic desert day">
-                        <img loading="lazy" src="Photos/display-photos/retroFourteen.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro night city lights">
-                        <img loading="lazy" src="Photos/display-photos/retroFifteen.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro futuristic vr">
-                        <img loading="lazy" src="Photos/display-photos/retroSixteen.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro teen room laptop anime">
-                        <img loading="lazy" src="Photos/display-photos/retroSeventeen.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro teen bedroom">
-                        <img loading="lazy" src="Photos/display-photos/retroEighteen.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro emo coder computer">
-                        <img loading="lazy" src="Photos/display-photos/retroNineteen.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro arcade game">
-                        <img loading="lazy" src="Photos/display-photos/retroTwenty.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro teen bedroom">
-                        <img loading="lazy" src="Photos/display-photos/retroTwentyOne.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro bedroom chill tv">
-                        <img loading="lazy" src="Photos/display-photos/retroTwentyTwo.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro sunset car drive tree">
-                        <img loading="lazy" src="Photos/display-photos/retroTwentyThree.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro space futuristic">
-                        <img loading="lazy" src="Photos/display-photos/retroTwentyFour.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro arcade game">
-                        <img loading="lazy" src="Photos/display-photos/retroTwentyFive.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro mtv tv">
-                        <img loading="lazy" src="Photos/display-photos/retroTwentySix.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro streets teen">
-                        <img loading="lazy" src="Photos/display-photos/retroTwentySeven.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro game gta sun drive sunset">
-                        <img loading="lazy" src="Photos/display-photos/retroTwentyEight.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro drive-in drive cinema car">
-                        <img loading="lazy" src="Photos/display-photos/retroTwentyNine.png" class = "mainImg displayImgRetro mainImgRetro displayNone img retro car sunset">
-                        <img loading="lazy" src="Photos/display-photos/outrunOne.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro game playstation">
-                        <img loading="lazy" src="Photos/display-photos/outrunTwo.jpg" class = "mainImg displayImgRetro mainImgRetro displayNone img retro sunset car drive tree">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveTwo.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave blender shapes">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveThree.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave car cinema tree">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveFour.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave diner takeaway">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveFive.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave computer grid">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveSix.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave grid dmx">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveSeven.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave room">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveEight.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave tree night game">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveNine.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave sunset">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveTen.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave house neighbourhood">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveEleven.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave windows paint sadboi">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveThirteen.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave bedroom">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveFourteen.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave game gameboy tree">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveFifteen.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave room">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveSeventeen.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave render tree beach bubble">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveEighteen.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave island bubbles mountain">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveNineteen.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave bubbles island">
-                        <img loading="lazy" src="Photos/display-photos/vaporWaveTwenty.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave mall probe alien">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveTwentyFour.png" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave cartoon">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveTwentyFive.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave street teen">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveTwentySix.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave pool water">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveTwentySeven.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave rome roman windows microsoft paint">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveTwentyEight.png" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave game nostalgia">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveTwentyNine.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave windows microsoft anime girl">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveThirty.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave roman rome pool night">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveThirtyOne.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave simpsons microsoft windows sadboi">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveThirtyTwo.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave microsoft windows rome roman statue flowers">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveThirtyThree.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave glitch sunset adidas stickers mountain">
-                        <img loading="lazy" src="Photos/display-photos/vaporwaveThirtyFour.jpg" class = "mainImg displayImgVaporWave mainImgVaporWave displayNone img vaporwave mountain trippy glitch">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkEight.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk futuristic machine">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkNine.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk city night">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkTen.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk machine factory">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkEleven.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk city futuristic">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkTwelve.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk city futuristic">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkThirteen.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk computer coder gadget">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkFourteen.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk machine futuristic spaceship">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkFifteen.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk city alien futuristic">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkSixteen.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk city factory futuristic">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkEighteen.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk alien machine">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkNineteen.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk machine futuristic">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkTwenty.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk room chill">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyOne.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk vr futuristic gadget">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyTwo.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk gadget girl">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyThree.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk smoke chill girl">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyFour.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk spaceship futuristic alien">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyFive.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk city computer chill coder">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkTwentySix.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk city futuristic">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkTwentySeven.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk teen anime">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyEight.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk futuristic city alien">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyNine.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk city futuristic people">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkThirty.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk futuristic factory">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyOne.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk city bike">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyTwo.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk city futuristic">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyThree.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk spaceship futuristic">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyFour.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk city computer">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyFive.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk spaceship night city">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkThirtySix.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk city parkour">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkThirtySeven.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk grid futuristic alien city">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyEight.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk city futuristic">
-                        <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyNine.jpg" class = "mainImg displayImgCyberPunk mainImgCyberPunk displayNone img cyberpunk car drift lights smoke">
-                   </div>
-                    <!-- RIGHT ARROW -->
-                    <div class="myViewArrowContainer">
-<!--                        <p id="arrowTwo" class="arrow visibilityNone rightArrow newArrow" style>></p>-->
-						<img src ="Photos/Tool-Photos/navArrow.png" id="arrowTwo" class="arrow rightArrow newArrow myViewArrow" style>
-						
-                    </div>
-                </div>
-                <!--VIEW TWO // FB TIMELINE VIEW // class: fbImg
-                ------------------------------------------------------------------------------------->
-                <div class ="photoSectionAlignment fbTimeline displayNone">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkOne.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img driving car cyberpunk city futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwo.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk space text">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThree.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk music portrait text">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkFour.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkFive.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkSix.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkSeven.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk music space technologic text">
-                    <img loading="lazy" src="Photos/display-photos/drivingShotOne.png" class = "fbImg displayImgRetro fbImgRetro displayNone img driving car grid city sun retro">
-                    <img loading="lazy" src="Photos/display-photos/drivingShotThree.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img driving car grid sun tree retro">
-                    <img loading="lazy" src="Photos/display-photos/drivingShotFour.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img driving car bit city text retro">
-                    <img loading="lazy" src="Photos/display-photos/drivingShotFive.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img driving car city cyberpunk">
-                    <img loading="lazy" src="Photos/display-photos/drivingShotSix.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img driving car city futuristic cyberpunk">
-                    <img loading="lazy" src="Photos/display-photos/drivingShotSeven.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img driving car cyberpunk city">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoOne.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img grid sun retro">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoTwo.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img grid sun retro">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoThree.png" class = "fbImg displayImgRetro fbImgRetro displayNone img grid city sun retro">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoFour.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img grid computer vaporwave text">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoSix.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img grid space retro">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoSeven.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img grid sun retro">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoEight.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img grid text space retro">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoNine.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img grid retro">
-                    <img loading="lazy" src="Photos/display-photos/cityShotOne.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img city sun retro">
-                    <img loading="lazy" src="Photos/display-photos/synthTreeOne.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img tree vaporwave">
-                    <img loading="lazy" src="Photos/display-photos/synthTreeTwo.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img tree sun text retro">
-                    <img loading="lazy" src="Photos/display-photos/synthTreeThree.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img tree vaporwave">
-                    <img loading="lazy" src="Photos/display-photos/synthwaveSunOne.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img sun space retro">
-                    <img loading="lazy" src="Photos/display-photos/synthwaveSunTwo.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img sun city space grid retro">
-                    <img loading="lazy" src="Photos/display-photos/portraitGraphicOne.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img portrait retro">
-                    <img loading="lazy" src="Photos/display-photos/portaitGraphicTwo.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img portrait movie text retro">
-                    <img loading="lazy" src="Photos/display-photos/gamePhotoOne.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img game text cyberpunk">
-                    <img loading="lazy" src="Photos/display-photos/paintingOne.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img city futuristic cyberpunk">
-                    <img loading="lazy" src="Photos/display-photos/arcadePhotoOne.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img arcade vaporwave">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveOne.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave retro computer">
-                    <img loading="lazy" src="Photos/display-photos/retroPhotoOne.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro">  
-                    <img loading="lazy" src="Photos/display-photos/retroPhotoTwo.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro arcade game neon">
-                    <img loading="lazy" src="Photos/display-photos/retroThree.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro oldschool america">
-                    <img loading="lazy" src="Photos/display-photos/retroFour.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro game gameboy cat night">
-                    <img loading="lazy" src="Photos/display-photos/retroFive.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro tape teen">
-                    <img loading="lazy" src="Photos/display-photos/retroSix.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro car drive night">
-                    <img loading="lazy" src="Photos/display-photos/retroSeven.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro girl game anime">
-                    <img loading="lazy" src="Photos/display-photos/retroEight.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro futuristic mall city">
-                    <img loading="lazy" src="Photos/display-photos/retroNine.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro futuristic alien space">
-                    <img loading="lazy" src="Photos/display-photos/retroTen.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro hut day">
-                    <img loading="lazy" src="Photos/display-photos/retroEleven.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro teen bedroom">
-                    <img loading="lazy" src="Photos/display-photos/retroTwelve.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro futuristic city">
-                    <img loading="lazy" src="Photos/display-photos/retroThirteen.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro alien futuristic desert day">
-                    <img loading="lazy" src="Photos/display-photos/retroFourteen.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro night city lights">
-                    <img loading="lazy" src="Photos/display-photos/retroFifteen.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro futuristic vr">
-                    <img loading="lazy" src="Photos/display-photos/retroSixteen.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro teen room laptop anime">
-                    <img loading="lazy" src="Photos/display-photos/retroSeventeen.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro teen bedroom">
-                    <img loading="lazy" src="Photos/display-photos/retroEighteen.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro emo coder computer">
-                    <img loading="lazy" src="Photos/display-photos/retroNineteen.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro arcade game">
-                    <img loading="lazy" src="Photos/display-photos/retroTwenty.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro teen bedroom">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentyOne.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro bedroom chill tv">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentyTwo.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro sunset car drive tree">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentyThree.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro space futuristic">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentyFour.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro arcade game">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentyFive.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro mtv tv">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentySix.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro streets teen">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentySeven.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro game gta sun drive sunset">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentyEight.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro drive-in drive cinema car">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentyNine.png" class = "fbImg displayImgRetro fbImgRetro displayNone img retro car sunset">
-                    <img loading="lazy" src="Photos/display-photos/outrunOne.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro game playstation">
-                    <img loading="lazy" src="Photos/display-photos/outrunTwo.jpg" class = "fbImg displayImgRetro fbImgRetro displayNone img retro sunset car drive tree">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTwo.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave blender shapes">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveThree.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave car cinema tree">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveFour.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave diner takeaway">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveFive.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave computer grid">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveSix.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave grid dmx">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveSeven.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave room">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveEight.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave tree night game">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveNine.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave sunset">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTen.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave house neighbourhood">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveEleven.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave windows paint sadboi">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveThirteen.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave bedroom">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveFourteen.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave game gameboy tree">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveFifteen.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave room">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveSeventeen.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave render tree beach bubble">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveEighteen.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave island bubbles mountain">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveNineteen.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave bubbles island">
-                    <img loading="lazy" src="Photos/display-photos/vaporWaveTwenty.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave mall probe alien">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTwentyFour.png" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave cartoon">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTwentyFive.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave street teen">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTwentySix.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave pool water">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTwentySeven.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave rome roman windows microsoft paint">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTwentyEight.png" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave game nostalgia">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTwentyNine.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave windows microsoft anime girl">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveThirty.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave roman rome pool night">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveThirtyOne.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave simpsons microsoft windows sadboi">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveThirtyTwo.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave microsoft windows roman rome statue">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveThirtyThree.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave stickers glitch sunset adidas mountain">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveThirtyFour.jpg" class = "fbImg displayImgVaporWave fbImgVaporWave displayNone img vaporwave stickers glitch mountain trippy train">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkEight.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk futuristic machine">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkNine.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk city night">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTen.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk machine factory">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkEleven.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk city futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwelve.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk city futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirteen.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk computer coder gadget">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkFourteen.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk machine futuristic spaceship">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkFifteen.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk city alien futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkSixteen.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk city factory futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkEighteen.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk alien machine">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkNineteen.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk machine futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwenty.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk room chill">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyOne.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk vr futuristic gadget">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyTwo.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk gadget girl">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyThree.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk smoke chill girl">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyFour.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk spaceship futuristic alien">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyFive.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk city computer chill coder">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentySix.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk city futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentySeven.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk teen anime">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyEight.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk futuristic city alien">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyNine.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk city futuristic people">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirty.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk futuristic factory">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyOne.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk city bike">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyTwo.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk city futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyThree.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk spaceship futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyFour.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk city computer">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyFive.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk spaceship night city">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtySix.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk city parkour">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtySeven.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk grid futuristic alien city">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyEight.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk city futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyNine.jpg" class = "fbImg displayImgCyberPunk fbImgCyberPunk displayNone img cyberpunk car drift lights smoke">
-                </div>
-                <!--VIEW THREE // PINTREST VIEW // class: pImg
-                --------------------------------------------------------------------------------------->
-                <div class ="photoSectionAlignment pintrestView imgZ displayNone ">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkOne.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img driving car cyberpunk city futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwo.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk space text">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThree.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk music portrait text">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkFour.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkFive.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkSix.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkSeven.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk music space technologic text">
-                    <img loading="lazy" src="Photos/display-photos/drivingShotOne.png" class = "pImg displayImgRetro pImgRetro displayNone img driving car grid city sun retro">
-                    <img loading="lazy" src="Photos/display-photos/drivingShotThree.jpg" class = "pImg displayImgRetro pImgRetro displayNone img driving car grid sun tree retro">
-                    <img loading="lazy" src="Photos/display-photos/drivingShotFour.jpg" class = "pImg displayImgRetro pImgRetro displayNone img driving car bit city text retro">
-                    <img loading="lazy" src="Photos/display-photos/drivingShotFive.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img driving car city cyberpunk">
-                    <img loading="lazy" src="Photos/display-photos/drivingShotSix.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img driving car city futuristic cyberpunk">
-                    <img loading="lazy" src="Photos/display-photos/drivingShotSeven.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img driving car cyberpunk city">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoOne.jpg" class = "pImg displayImgRetro pImgRetro displayNone img grid sun retro">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoTwo.jpg" class = "pImg displayImgRetro pImgRetro displayNone img grid sun retro">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoThree.png" class = "pImg displayImgRetro pImgRetro displayNone img grid city sun retro">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoFour.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img grid computer vaporwave text">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoSix.jpg" class = "pImg displayImgRetro pImgRetro displayNone img grid space retro">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoSeven.jpg" class = "pImg displayImgRetro pImgRetro displayNone img grid sun retro">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoEight.jpg" class = "pImg displayImgRetro pImgRetro displayNone img grid text space retro">
-                    <img loading="lazy" src="Photos/display-photos/gridPhotoNine.jpg" class = "pImg displayImgRetro pImgRetro displayNone img grid retro">
-                    <img loading="lazy" src="Photos/display-photos/cityShotOne.jpg" class = "pImg displayImgRetro pImgRetro displayNone img city sun retro">
-                    <img loading="lazy" src="Photos/display-photos/synthTreeOne.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img tree vaporwave">
-                    <img loading="lazy" src="Photos/display-photos/synthTreeTwo.jpg" class = "pImg displayImgRetro pImgRetro displayNone img tree sun text retro">
-                    <img loading="lazy" src="Photos/display-photos/synthTreeThree.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img tree vaporwave">
-                    <img loading="lazy" src="Photos/display-photos/synthwaveSunOne.jpg" class = "pImg displayImgRetro pImgRetro displayNone img sun space retro">
-                    <img loading="lazy" src="Photos/display-photos/synthwaveSunTwo.jpg" class = "pImg displayImgRetro pImgRetro displayNone img sun city space grid retro">
-                    <img loading="lazy" src="Photos/display-photos/portraitGraphicOne.jpg" class = "pImg displayImgRetro pImgRetro displayNone img portrait retro">
-                    <img loading="lazy" src="Photos/display-photos/portaitGraphicTwo.jpg" class = "pImg displayImgRetro pImgRetro displayNone img portrait movie text retro">
-                    <img loading="lazy" src="Photos/display-photos/gamePhotoOne.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img game text cyberpunk">
-                    <img loading="lazy" src="Photos/display-photos/paintingOne.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img city futuristic cyberpunk">
-                    <img loading="lazy" src="Photos/display-photos/arcadePhotoOne.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img arcade vaporwave">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveOne.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave retro computer">
-                    <img loading="lazy" src="Photos/display-photos/retroPhotoOne.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro">
-                    <img loading="lazy" src="Photos/display-photos/retroPhotoTwo.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro arcade game neon">
-                    <img loading="lazy" src="Photos/display-photos/retroThree.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro oldschool america">
-                    <img loading="lazy" src="Photos/display-photos/retroFour.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro game gameboy cat night">
-                    <img loading="lazy" src="Photos/display-photos/retroFive.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro tape teen">
-                    <img loading="lazy" src="Photos/display-photos/retroSix.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro car drive night">
-                    <img loading="lazy" src="Photos/display-photos/retroSeven.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro girl game anime">
-                    <img loading="lazy" src="Photos/display-photos/retroEight.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro futuristic mall city">
-                    <img loading="lazy" src="Photos/display-photos/retroNine.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro futuristic alien space">
-                    <img loading="lazy" src="Photos/display-photos/retroTen.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro hut day">
-                    <img loading="lazy" src="Photos/display-photos/retroEleven.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro teen bedroom">
-                    <img loading="lazy" src="Photos/display-photos/retroTwelve.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro futuristic city">
-                    <img loading="lazy" src="Photos/display-photos/retroThirteen.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro alien futuristic desert day">
-                    <img loading="lazy" src="Photos/display-photos/retroFourteen.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro night city lights">
-                    <img loading="lazy" src="Photos/display-photos/retroFifteen.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro futuristic vr">
-                    <img loading="lazy" src="Photos/display-photos/retroSixteen.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro teen room laptop anime">
-                    <img loading="lazy" src="Photos/display-photos/retroSeventeen.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro teen bedroom">
-                    <img loading="lazy" src="Photos/display-photos/retroEighteen.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro emo coder computer">
-                    <img loading="lazy" src="Photos/display-photos/retroNineteen.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro arcade game">
-                    <img loading="lazy" src="Photos/display-photos/retroTwenty.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro teen bedroom">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentyOne.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro bedroom chill tv">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentyTwo.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro sunset car drive tree">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentyThree.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro space futuristic">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentyFour.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro arcade game">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentyFive.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro mtv tv">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentySix.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro streets teen">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentySeven.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro game gta sun drive sunset">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentyEight.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro drive-in drive cinema car">
-                    <img loading="lazy" src="Photos/display-photos/retroTwentyNine.png" class = "pImg displayImgRetro pImgRetro displayNone img retro car sunset">
-                    <img loading="lazy" src="Photos/display-photos/outrunOne.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro game playstation">
-                    <img loading="lazy" src="Photos/display-photos/outrunTwo.jpg" class = "pImg displayImgRetro pImgRetro displayNone img retro sunset car drive tree">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTwo.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave blender shapes">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveThree.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave car cinema tree">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveFour.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave diner takeaway">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveFive.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave computer grid">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveSix.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave grid dmx">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveSeven.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave room">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveEight.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave tree night game">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveNine.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave sunset">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTen.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave house neighbourhood">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveEleven.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave windows paint sadboi">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveThirteen.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave bedroom">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveFourteen.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave game gameboy tree">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveFifteen.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave room">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveSeventeen.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave render tree beach bubble">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveEighteen.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave island bubbles mountain">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveNineteen.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave bubbles island">
-                    <img loading="lazy" src="Photos/display-photos/vaporWaveTwenty.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave mall probe alien">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTwentyFour.png" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave cartoon">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTwentyFive.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave street teen">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTwentySix.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave pool water">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTwentySeven.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave rome roman windows microsoft paint">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTwentyEight.png" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave game nostalgia">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveTwentyNine.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave windows microsoft anime girl">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveThirty.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave roman rome pool night">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveThirtyOne.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave simpsons microsoft windows sadboi">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveThirtyTwo.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave microsoft windows rome roman statue">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveThirtyThree.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave adidas stickers sunset glitch mountain">
-                    <img loading="lazy" src="Photos/display-photos/vaporwaveThirtyFour.jpg" class = "pImg displayImgVaporWave pImgVaporWave displayNone img vaporwave trees mountain glitch trippy train">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkEight.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk futuristic machine">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkNine.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk city night">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTen.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk machine factory">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkEleven.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk city futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwelve.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk city futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirteen.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk computer coder gadget">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkFourteen.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk machine futuristic spaceship">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkFifteen.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk city alien futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkSixteen.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk city factory futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkEighteen.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk alien machine">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkNineteen.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk machine futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwenty.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk room chill">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyOne.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk vr futuristic gadget">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyTwo.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk gadget girl">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyThree.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk smoke chill girl">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyFour.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk spaceship futuristic alien">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyFive.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk city computer chill coder">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentySix.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk city futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentySeven.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk teen anime">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyEight.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk futuristic city alien">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkTwentyNine.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk city futuristic people">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirty.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk futuristic factory">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyOne.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk city bike">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyTwo.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk city futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyThree.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk spaceship futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyFour.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk city computer">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyFive.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk spaceship night city">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtySix.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk city parkour">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtySeven.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk grid futuristic alien city">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyEight.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk city futuristic">
-                    <img loading="lazy" src="Photos/display-photos/cyberPunkThirtyNine.jpg" class = "pImg displayImgCyberPunk pImgCyberPunk displayNone img cyberpunk car drift lights smoke">
-                </div>
-            </div>
-            <!-- GO TO TOP OF PAGE ICON -->
-            <a href="#topScreen">
-                <div class="topPageArrowContainer displayNone" onclick="normalClickAudioFunction()" title="Back to top of screen">
-<!--                    <p class = "topPageArrowIcon arrow" onclick="scrollToTop()"><strong> &#62;</strong> </p>-->
-					<img src="Photos/Tool-Photos/navArrow.png" class = "topPageArrowIcon arrow" onclick="scrollToTop()">
-                        <audio class = "normalClick" onclick="quickClickAudioFunction()"> <source src="Sound_Related/Button_Clicks/ButtonEject_Four.wav" type="audio/WAV"></audio>
-                </div>
-            </a>
-        </div>
-    
-    <!--SMALL SCREEN ADAPTIVE ICON BAR--> 
-    <!-- bottom wave bar line -->
-        <footer class="smallScreenBottomBar adaptiveTabButtons userSelectNone zIndex5K"> 
-            <img src = "Photos/Tool-Photos/wave bar line new.png" id = "waveLine" class = "bottomBarWaveLine positionFix zIndex5K">
-            <!--adaptive display button image-->
-            <div class="iconWrap" style="width: 100%; justify-content: space-around;">
-                <a>
-                    <img src = "Photos/Tool-Photos/display-grey.png" class = "displayImg adaptiveDisplayButton" title = "change photo display" onclick="normalClickAudioFunction()">
-                </a>
-                <!--adaptive preferences button image-->
-                <a class = "off">
-                    <img src="Photos/Tool-Photos/preferancesIon.png" class = "preferencesIcon adaptivePreferencesIcon off" id="adaptivePreferencesButton" >
-                </a>
-                <!--adaptive moviemode button image-->
-                <a class = "off">
-                    <img src = "Photos/Tool-Photos/play-black.png" class = "moviemodeImg b movieModeButtonAdaptive off" id="adaptiveMovieModeButton">
-                </a>
-                <!--adaptive soundControl image-->
-                <a>
-                    <img src = "Photos/Tool-Photos/soundControl.png" alt = "sound on/off" class = "adaptiveSoundControl soundControlIcon off" id="adaptiveSoundControlButton">
-                </a>
-            </div>
-        </footer>
-    
+                        <!-- brightness control -->
+                        <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center tl-ctrl-off range-element brightness-button" id="brightness-button-wrap">
+                            <img src="Assets/brightness.png" class="tl-control-icon brightness-button" alt="brightness-image" id="brightness-button"> <!-- ICON -->
+                            <div class="d-none secondary-range-wrap" id="brightness-range-wrap">
+                                <input type="range" class="d-none secondary-range screen-brightness-range" value="100" min="30" max="100"> <!-- range slider -->
+                            </div>
+                        </div>
+                        <!-- local exit/return -->
+                        <div class="tl-return d-none" id="tl-return-wrap">
+                            <img src="Assets/back-arrow-white.png" class="float-right d-none position-relative tl-return" id="tl-return" style>
+                        </div>
+                        <!-- OPTIONAL TIMER -->
+                        <div class="position-absolute d-none" data-displayed="true" id="record-timer-wrap" style="bottom: 0">
+                            <span id="record-timer">00:00:00</span>
+                        </div> 
+                    </aside>
+                    <!-- LOGO -->
+                    <aside class="align-items-center align-self-center">
+                        <img src="Assets/university-logo.png" class="" alt="university-logo" id="university-logo">
+                    </aside>
+                    <!-- TIME -->
+                    <aside class="easyinfo-wrap align-items-center flex-column align-self-center border-primary d-flex justify-content-around justify-self-end w-25">
+                        <span class="h1" id="timeValue"></span>
+                        <span class="display-4 d-none" id="dateValue"></span>
+                        <span class="lead text-center mt-n2" id="roomName">Kingston Bld <strong class="alert-link">-</strong> 34.5.3</span>
+                    </aside>
+                </section>
+
+                <!-- MAIN CONTROLS -->
+                <section class="align-self-center border-success control-section d-flex justify-content-center position-absolute w-75" id="main-controls">
+
+                    <!-- MICROPHONE CONTROLS -->
+                    <aside class="align-items-center d-none justify-content-around w-100" id="mic-control-wrap">
+
+                        <!-- <div> -->
+                            <!-- MIC 1-->
+                            <div class="d-flex flex-row range-wrap">
+                                <form class="">
+                                    <input class="main-range" type="range" value="50">
+                                </form>
+                                <!-- <label class="text-center mt-5">Lecturn Mic</label> -->
+                            </div>
+
+                            <!-- MIC 2 -->
+                            <div class="d-flex flex-column range-wrap">
+                                <form class="">
+                                    <input class="main-range" type="range" value="50">
+                                </form>
+                                <!-- <label class="text-center mt-5">Hand Mic 1</label> -->
+                            </div>
+
+                            <!-- MIC 3 -->
+                            <div class="d-flex flex-column range-wrap">
+                                <form class="">
+                                    <input class="main-range" type="range" value="50">
+                                </form>
+                                <!-- <label class="text-center mt-5">Hand Mic 2</label> -->
+                            </div>
+
+                            <!-- MIC 4 -->
+                            <div class="d-flex flex-column range-wrap">
+                                <form class=""> 
+                                    <input class="main-range" type="range" value="50">
+                                </form>
+                                <!-- <label class="text-center mt-5">Clip Mic 1</label> -->
+                            </div>
+
+                            <!-- MIC 5 -->
+                            <div class="d-flex flex-column range-wrap">
+                                <form class="">
+                                    <input class="main-range" type="range" value="50">
+                                </form>
+                                <!-- <label class="text-center mt-5">Clip Mic 2</label> -->
+                            </div>
+
+                            <!-- LABELS -->
+                            <div class="mic-label-wrap justify-content-around">
+                                <label class="position-relative lead" style="right: 10px;" for>Lecturn Mic</label>
+                                <label class="position-relative lead"style="right: 13px" for>Hand Mic 1</label>
+                                <label class="position-relative lead"style="right: 12px" for>Hand Mic 2</label>
+                                <label class="position-relative lead"style="right: 9px" for>Clip Mic 1</label>
+                                <label class="position-relative lead"style="right: -1px" for>Clip Mic 2</label>
+                            </div>
+                        <!-- </div> -->
+                    </aside>
+
+                    <!-- LIGHTING CONTROLS -->
+                    <aside class="align-items-center d-flex justify-content-around w-100" id="lighting-control-wrap">
+                        <!-- FRONT LIGHTS -->
+                        <div class="d-flex flex-row range-wrap">
+                            <form class="">
+                                <input class="main-range" type="range" value="50">
+                            </form>
+                            <!-- <label class="text-center mt-5">Lecturn Mic</label> -->
+                        </div>
+
+                        <!-- MIDDLE LIGHTS -->
+                        <div class="d-flex flex-column range-wrap">
+                            <form class="">
+                                <input class="main-range" type="range" value="50">
+                            </form>
+                            <!-- <label class="text-center mt-5">Hand Mic 1</label> -->
+                        </div>
+
+                        <!-- BACK LIGHTS -->
+                        <div class="d-flex flex-column range-wrap">
+                            <form class="">
+                                <input class="main-range" type="range" value="50">
+                            </form>
+                            <!-- <label class="text-center mt-5">Hand Mic 2</label> -->
+                        </div>
+
+                        <!-- LABELS -->
+                        <div class="lighting-label-wrap justify-content-around">
+                            <label class="position-relative fs-3r" style="right: 1px;" for>Front</label>
+                            <label class="position-relative fs-3r"style="right: 4px" for>Middle</label>
+                            <label class="position-relative fs-3r"style="right: 5px" for>Back</label>
+                        </div>
+                    </aside>
+
+                    <!-- DISPLAY SWITCHING -->
+                    <aside class="align-items-center d-none justify-content-around w-100" id="display-switching-wrap">
+                        <figure class="align-items-center d-flex flex-column justify-content-center m-0" id="computer">
+                            <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center">
+                                <img src="Assets/computer.png" alt="PC picture" class="control-icon z-5">
+                            </div>
+                            <figcaption class="z-5 lead">PC</figcaption>
+                            <div class="on position-absolute"></div><!-- backshadow-->
+                        </figure>
+                        <figure class="align-items-center d-flex flex-column justify-content-center m-0" id="hdmi">
+                            <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center">
+                                <img src="Assets/ethernet.png" alt="HDMI picture" class="control-icon z-5">
+                            </div>
+                            <figcaption class="z-5 lead">HDMI</figcaption>
+                            <div class="position-absolute"></div><!-- backshadow-->
+                        </figure>
+                        <figure class="align-items-center d-flex flex-column justify-content-center m-0" id="wireless">
+                            <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center">
+                                <img src="Assets/wifi.png" alt="WIRELSS picture" class="control-icon z-5">
+                            </div>
+                            <figcaption class="z-5 lead">WIRELESS</figcaption>
+                            <div class="position-absolute"></div><!-- backshadow-->
+                        </figure>
+                    </aside>
+
+                </section>
+
+                <!-- BOTTOM BAR -->
+                <section class="align-self-end bar-height border-danger d-flex justify-content-between position-absolute w-100" id="bottom-bar"> 
+
+                    <!-- POWER BUTTON-->
+                    <aside class="tab-wrap align-self-center" id="powerButton">
+                        <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center">
+                            <a class="control-icon-wrap center"><img alt="power-button" class="control-icon" src="Assets/power-button.png"></a>
+                        </div>
+                        <span class="text-center d-none" >Power</span>
+                        <div class="centered off-confirm-box flex-column justify-content-around align-items-center alert-top"> <!-- alert box-->
+
+                            <div id="power-mode"> <!-- powermode pop-up option-->
+                                <div class="center align-self-center" style="width: 50px; height: 50px;"><span id="countdown" class="h3 m-0">30</span></div><!-- countdown node/main alert-->
+                                <span class="h1 position-relative m-0 text-center" style id="alert-text">Are you sure?</span>
+                                <div class="d-flex flex-row justify-content-around w-100"> <!-- button wrap href="javascript:standbyTimer('standby.html')">-->
+                                    <button style="width: 100px; height: 50px;" class="btn btn-light text-decoration-none" id="yesBtn" onclick="powerOff();"><a class="h3 text-dark text-decoration-none" href="javascript:powerOff()">Yes</a></button>
+                                    <button style="width: 100px; height: 50px;" class="btn btn-light text-decoration-none no-btn-element center" id="noBtn">
+                                        <span class="h3 no-btn-element m-0">No</span>
+                                        <img src="Assets/thumbs-up.png" class="small-icon d-none" id="thumb">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="d-none position-relative" id="ts-wrap"> <!-- tech settings -->
+                                <div class="position-relative align-self-center" style="width: 97%; height: 95%;"> <!-- space around elements-->
+                                    <img alt="exit" class="small-icon position-relative float-right" id ="ts-return" src="Assets/cancel_grey.png" style="margin: 3px 3px 0px 0px;" onclick="pwReset();"> <!-- return arrow -->
+                                    <form id="ts-form"> <!-- number buttons and password input-->
+                                        <div id="pw-input-wrap"> 
+                                        <!-- password input -->
+                                            <div class="pw-bbl bg-dark bbl-shadow"></div>
+                                            <div class="pw-bbl bg-dark"></div>
+                                            <div class="pw-bbl bg-dark"></div>
+                                            <div class="pw-bbl bg-dark"></div> 
+                                            <div id="backspace"><img class="small-icon" onclick="bsFunct();" src="Assets/backspace_grey.png"></div> <!-- backspace for bubble input-->
+                                        </div>
+                                        
+                                        <div id="number-btn-container"> <!-- number buttons -->
+                                            <div class="d-flex justify-content-around w-100">
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="1" id="pw-1"></div>            
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="2" id="pw-2"></div>
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="3" id="pw-3"></div>
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="4" id="pw-4"></div>
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="5" id="pw-5"></div>
+                                            </div>
+                                            <div class="d-flex justify-content-around w-100">
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="9" id="pw-6"></div>
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="7" id="pw-7"></div>
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="8" id="pw-8"></div>
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="9" id="pw-9"></div>
+                                                <div class="number-btn-wrap center"><input class="btn btn-light number-btn" type="button" value="0" id="pw-0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div><!-- shutdown confirmation-->
+                        <!-- <div class="position-absolute" style="opacity:0; transition: all .15s ease-in-out;"></div>backshadow -->
+                    </aside>
+
+                    <!-- BOTTOM/MAIN CONTROLS -->
+                    <aside class="align-items-center d-flex justify-content-around tab-parent">
+                        <!-- MIC CONTROLS -->
+                        <div class="tab-wrap z-10" id="mic-control">
+                            <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center">
+                                <img src="Assets/microphone.png" class="control-icon z-5" alt="control-icon">
+                            </div>
+                            <span class="text-center z-5">Mic Levels</span>
+                            <div class="d-none position-absolute"></div><!-- backshadow-->
+                        </div>
+                        <!-- LIGHTING CONTROLS -->
+                        <div class="tab-wrap off z-10" id="lighting-control">
+                            <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center">
+                                <img src="Assets/light-bulb.png" class="control-icon z-5" alt="control-icon">
+                            </div>
+                            <span class="text-center z-5">Lighting</span>
+                            <div class="on position-absolute"></div><!-- backshadow-->
+                        </div>
+                        <!-- DISPLAY CONTROLS -->
+                        <div class="tab-wrap off z-10" id="display-control">
+                            <div class="control-icon-wrap d-flex flex-row justify-content-center align-items-center">
+                                <img src="Assets/display-grey.png" class="control-icon z-5" alt="control-icon">
+                            </div>
+                            <span class="text-center z-5">Connectivity</span>
+                            <div class="d-none position-absolute"></div><!-- backshadow-->
+                        </div>
+                    </aside>
+
+                    <!-- TECH SETTINGS -->
+                    <aside class="tab-wrap align-self-center" id="settings-icon-wrap">
+                        <div class="control-icon-wrap d-flex flex-row center">
+                            <img src="Assets/gear.png" class="control-icon" alt="control-icon" id="ts-icon">
+                        </div>
+                        <span class="text-center z-5 d-none">Settings</span>
+                    </aside>
+                </section>
+                <div id="po-backshadow" class="d-none"></div><!-- power off prompt backshadow -->
+            </main>
+    </div>
 </body>
-
-<!-- SCRIPT TAGS -->
-<script src="Javascript_Files/GlobalVariables&Defaults.js"></script> <!-- global variables & defaults -->
-<script src="Javascript_Files/GlobalFunctions.js"></script> <!-- global functions -->
-<script src="Javascript_Files/wavefmLogoCode.js"></script> <!-- wavefm logo code -->
-<script src="Javascript_Files/searchBarCode.js" ></script> <!-- searchbar code -->
-<script src="Javascript_Files/movieModeCode.js" defer></script> <!--moviemode code -->
-<script src="Javascript_Files/displayButtonCode.js"></script> <!-- displayButton code -->
-<script src="Javascript_Files/PreferencesCode.js" defer></script> <!-- preferences code -->
-<script src="Javascript_Files/tabDisplayCode.js"></script>  <!-- tab display code -->
-<script src="Javascript_Files/infoAboutCode.js" defer></script> <!--infoAbout code -->
-<script src="Javascript_Files/soundCode.js" defer></script> <!-- sound code -->
-<script src="Javascript_Files/arrowCode.js"></script> <!-- arrow code -->
-<script src="Javascript_Files/imgLoadScript.js"></script> <!-- image load script -->
-<script src="Javascript_Files/functionsOnLoad.js"></script> <!-- functions on-load script -->
-
+<script src="Javascript/globalCode.js"></script>
+<script src="Javascript/jquery.min.js"></script>
+<script src="Javascript/popper-base.min.js"></script>
+<script src="Javascript/bootstrap.min.js"></script>
+<script src="Javascript/timeAndLocation.js"></script>
+<script src="Javascript/Number_Related_Code.js"></script>
+<script src="Javascript/moment.min.js"></script>
+<script src="Javascript/functionsOnLoad.js"></script>
+<script src="Javascript/topLeftControls.js"></script>
+<script src="Javascript/recordTimer.js"></script>
+<script src="Javascript/powerButton.js"></script>
+<script src="Javascript/passcode.js"></script>
+</html>
