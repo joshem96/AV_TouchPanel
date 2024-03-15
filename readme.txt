@@ -1,3 +1,7 @@
+#AV TOUCH PANEL
+
+#An AV touch panel made for demonstration purposes.
+
 ** PROGRAMMER NOTES **
 
 view the github link at https://joshem96.github.io/AV_TouchPanel/
