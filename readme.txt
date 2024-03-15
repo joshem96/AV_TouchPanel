@@ -1,6 +1,6 @@
-#AV TOUCH PANEL
+# AV TOUCH PANEL
 
-#An AV touch panel made for demonstration purposes.
+## An AV touch panel made for demonstration purposes.
 
 ** PROGRAMMER NOTES **
 
